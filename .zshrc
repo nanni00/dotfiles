@@ -120,12 +120,6 @@ source $ZSH/oh-my-zsh.sh
 
 ######################### CUSTOM STUFF #############################
 
-# DuckDB library for Rust 
-# otherwise build+compile libduckd-rs takes a lot of time and disk
-export DUCKDB_LIB_DIR=$HOME/.libduckdb
-export DUCKDB_INCLUDE_DIR=$DUCKDB_LIB_DIR
-export LD_LIBRARY_PATH=$DUCKDB_LIB_DIR
-
 
 ################### Set up conda (not sure about that) ###################
 export MINICONDA_ROOT="$HOME/miniconda3/"
@@ -145,6 +139,8 @@ else
 fi
 unset __conda_setup
 # <<< conda initialize <<<
+
+export EDITOR="nvim"
 
 # zprof
 

@@ -3,7 +3,9 @@
 ######################################################################################
 
 # TeX Live
-export PATH="$HOME/texlive/2024/bin/x86_64-linux:$PATH"
+export PATH="/usr/local/texlive/2025/bin/x86_64-linux:$PATH"
+export MANPATH="/usr/local/texlive/2025/texmf-dist/doc/man:$MANPATH"
+export INFOPATH="/usr/local/texlive/2025/texmf-dist/doc/info:$INFOPATH"
 
 # Created by `pipx` on 2024-12-18 10:03:22
 export PATH="$HOME/.local/bin:$PATH"
