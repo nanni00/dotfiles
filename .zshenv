@@ -15,4 +15,6 @@ export DUCKDB_LIB_DIR=$HOME/.libduckdb
 export DUCKDB_INCLUDE_DIR=$DUCKDB_LIB_DIR
 export LD_LIBRARY_PATH="$DUCKDB_LIB_DIR:$LD_LIBRARY_PATH"
 
+export ZDOTDIR="$HOME/.config/zsh"
+
 . "$HOME/.cargo/env"

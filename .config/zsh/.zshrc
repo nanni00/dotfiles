@@ -142,5 +142,8 @@ unset __conda_setup
 
 export EDITOR="nvim"
 
+# See https://zsh.sourceforge.io/Guide/zshguide02.html
+AUTO_CD=1
+
 # zprof
 

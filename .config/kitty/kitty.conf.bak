@@ -11,8 +11,6 @@
 # italic_font      auto
 # bold_italic_font auto
 
-font_family family="Noto Mono"
-
 #: You can specify different fonts for the bold/italic/bold-italic
 #: variants. The easiest way to select fonts is to run the `kitten
 #: choose-fonts` command which will present a nice UI for you to
