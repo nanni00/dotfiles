@@ -1,6 +1,7 @@
 #!/bin/bash
 
 ZSHENV="$HOME/.zshenv"
+ZSH_CUSTOM="$HOME/.oh-my-zsh/custom/"
 
 # get the user task (if any)
 task=$1
@@ -16,15 +17,15 @@ if [ $task == "--set-zsh" ]; then
     # Try to change shell (works if chsh doesn't require sudo)
     chsh -s "$(command -v zsh)"
     echo "Shell changed to zsh"
-      
-    if [ ! -f $ZSHENV ]; then 
-      cat > "$ZSHENV" << 'EOF'
+
+    if [ ! -f $ZSHENV ]; then
+      cat >"$ZSHENV" <<'EOF'
 export ZDOTDIR="$HOME/.config/zsh"
-      EOF
+EOF
       echo ".zshenv file created"
     else
       if ! grep -qF 'export ZDOTDIR="$HOME/.config/zsh"' "$ZSHENV"; then
-        echo 'export ZDOTDIR="$HOME/.config/zsh"' >> "$ZSHENV"
+        echo 'export ZDOTDIR="$HOME/.config/zsh"' >>"$ZSHENV"
         echo "Added ZDOTDIR to .zshenv"
       fi
     fi
