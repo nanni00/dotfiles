@@ -1,5 +1,7 @@
 #!/bin/bash
 
+ZSHENV="$HOME/.zshenv"
+
 # get the user task (if any)
 task=$1
 
@@ -12,10 +14,19 @@ if [ $task == "--set-zsh" ]; then
     echo "zsh found, setting as default shell..."
 
     # Try to change shell (works if chsh doesn't require sudo)
-    if chsh -s "$(command -v zsh)" 2>/dev/null; then
-      echo "✓ Shell changed to zsh"
+    chsh -s "$(command -v zsh)"
+    echo "Shell changed to zsh"
+      
+    if [ ! -f $ZSHENV ]; then 
+      cat > "$ZSHENV" << 'EOF'
+export ZDOTDIR="$HOME/.config/zsh"
+      EOF
+      echo ".zshenv file created"
     else
-      echo "⚠ Cannot use chsh (no sudo). Adding fallback to shell rc files..."
+      if ! grep -qF 'export ZDOTDIR="$HOME/.config/zsh"' "$ZSHENV"; then
+        echo 'export ZDOTDIR="$HOME/.config/zsh"' >> "$ZSHENV"
+        echo "Added ZDOTDIR to .zshenv"
+      fi
     fi
   else
     echo "zsh not found, fallback to defaulf shell $SHELL"
@@ -25,6 +36,11 @@ fi
 if [ $task == "--install-oh-my-zsh" ]; then
   # download and install oh-my-zsh
   sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+fi
+
+if [ $task == "--install-oh-my-zsh-plugins" ]; then
+  git clone https://github.com/zsh-users/zsh-autosuggestions.git $ZSH_CUSTOM/plugins/zsh-autosuggestions
+  git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $ZSH_CUSTOM/plugins/zsh-syntax-highlighting
 fi
 
 if [ $task == "--install-powerlevel10k" ]; then
