@@ -7,7 +7,7 @@ return {
     ui = {
       file_picker = {
         -- this isn't working properly
-        auto_open_on_mount = true,
+        auto_open_on_mount = false,
       },
     },
   },

@@ -66,15 +66,15 @@ return {
       },
       setup = {
         ruff = function()
-          LazyVim.lsp.on_attach(function(client, _)
+          Snacks.util.lsp.on({ name = "ruff" }, function(_, client)
             -- Disable hover in favor of Pyright
             client.server_capabilities.hoverProvider = false
-          end, "ruff")
+          end)
         end,
         ty = function()
-          LazyVim.lsp.on_attach(function(client, _)
+          Snacks.util.lsp.on({ name = "ty" }, function(_, client)
             client.server_capabilities.hoverProvider = true
-          end, "ty")
+          end)
         end,
       },
     },
