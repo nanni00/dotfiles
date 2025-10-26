@@ -11,6 +11,7 @@ INSTALL_OH_MY_ZSH="--install-oh-my-zsh"
 INSTALL_OH_MY_ZSH_PLUGINS="--install-oh-my-zsh-plugins"
 INSTALL_POWERLEVEL10K="--install-powerlevel10k"
 INSTALL_CONDA="--install-conda"
+CONDA_CREATE_ENV="--conda-create-env"
 
 # get the user task (if any)
 task=$1
@@ -86,4 +87,40 @@ if [ $task == $INSTALL_CONDA ]; then
   export PATH="$MINICONDA_ROOT/bin:$PATH"
   source $MINICONDA_ROOT/bin/activate
   conda init --all
+fi
+
+if [ $task == $CONDA_CREATE_ENV ]; then
+  DOTFILES_DIR=$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" &>/dev/null && pwd)
+  CONDA_ENVS_DIR="$DOTFILES_DIR/conda-envs"
+
+  # get the environments list
+  envs=($(ls $CONDA_ENVS_DIR))
+  echo "Available environment configurations in $CONDA_ENVS_DIR: "
+  i=0
+  for env in ${envs[@]}; do
+    echo "[$i]  ${env}"
+    i=$((i + 1))
+  done
+
+  read -p "YAML environment file index, name or absolute path: " CONDA_YML
+
+  INT_REGEX="^[0-9]+$"
+  if [[ $CONDA_YML =~ $INT_REGEX ]]; then
+    if [ ! $CONDA_YML -lt ${#envs[@]} ]; then
+      echo "Invalid index."
+      exit 1
+    fi
+
+    CONDA_YML=${envs[$CONDA_YML]}
+    CONDA_YML="$CONDA_ENVS_DIR/$CONDA_YML"
+  elif [[ " ${envs[*]} " =~ [[:space:]]${CONDA_YML}[[:space:]] ]]; then
+    CONDA_YML="$CONDA_ENVS_DIR/$CONDA_YML"
+  elif [ -f $CONDA_YML ]; then
+    echo
+  else
+    echo "Input '$CONDA_YML' not recognized as a valid index or name of available environments or absolute path."
+    exit 1
+  fi
+
+  echo "Creating conda environment from YAML file $CONDA_YML..."
 fi

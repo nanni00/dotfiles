@@ -1,0 +1,39 @@
+name: datascience3.12
+
+dependencies:
+  - python=3.12
+  - pip
+  - pip:
+    # datascience
+    - numpy==2.3.0
+    - scipy
+    - scikit-learn
+    - pandas==2.3.3
+    - polars==1.34.0
+    - pyarrow
+    - torch==2.9.0
+    - networkx
+
+    # database
+    - duckdb
+    - sqlalchemy==2.0
+
+    # utilities
+    - dotenv
+    - tqdm
+    - mmh3
+    - inflection
+    - sodapy
+
+    # LLM
+    - litellm
+
+    # printing/displaying
+    - matplotlib
+    - bokeh
+    - seaborn
+    - tabulate
+
+    # jupyter notebook
+    - ipykernel
+    - jupyter

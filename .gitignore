@@ -1,2 +1,3 @@
 .zcompdump*
 .zshenv
+test.sh
