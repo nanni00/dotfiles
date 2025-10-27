@@ -76,9 +76,27 @@ if [ $task == $INSTALL_CONDA ]; then
   MINICONDA_URL="https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh"
   MINICONDA_ROOT="$HOME/.miniconda3"
   MINICONDA_TMP_FILE="/tmp/miniconda.sh"
-  wget $MINICONDA_URL -O $MINICONDA_TMP_FILE
 
-  echo "Installing miniconda at $MINICONDA_ROOT..."
+  # specify custom installation path
+  read -p "Miniconda install location (leave empty for default $MINICONDA_ROOT): " MINICONDA_INSTALL
+  if [ ! -z "${MINICONDA_INSTALL}" ] && [[ "$MINICONDA_INSTALL" != "\n" ]]; then
+    miniconda_custom_dirname="$(dirname $MINICONDA_INSTALL)"
+
+    if [ -d $MINICONDA_INSTALL ]; then
+      echo "Directory already exists: $MINICONDA_INSTALL"
+      exit 1
+    elif [ ! -d miniconda_custom_dirname ]; then
+      echo "Path not valid: $miniconda_custom_dirname"
+      exit 1
+    else
+      MINICONDA_ROOT=$MINICONDA_INSTALL
+    fi
+  fi
+
+  echo "Miniconda install location: $MINICONDA_ROOT"
+
+  exit 1
+  wget $MINICONDA_URL -O $MINICONDA_TMP_FILE
   bash $MINICONDA_TMP_FILE -b -p $MINICONDA_ROOT
   echo "Done. Removing temporary files..."
   rm $MINICONDA_TMP_FILE
@@ -123,4 +141,5 @@ if [ $task == $CONDA_CREATE_ENV ]; then
   fi
 
   echo "Creating conda environment from YAML file $CONDA_YML..."
+  conda env create --file=$CONDA_YML
 fi

@@ -12,19 +12,6 @@ export INFOPATH="/usr/local/texlive/2025/texmf-dist/doc/info:$INFOPATH"
 # Created by `pipx` on 2024-12-18 10:03:22
 export PATH="$HOME/.local/bin:$PATH"
 
-# Created by `nanni` on 2025-04-29 21:47:32
-export PATH="$HOME/verapdf:$PATH"
-
-# Created by `nanni` on 2025-04-29 22:21:45
-# PATH="$PATH:/home/nanni/ghostscript/bin"
-
-# Lua language and LuaRocks
-export PATH="$HOME/lua/bin:$PATH"
-export PATH="$HOME/luarocks/bin:$PATH"
-
-# CTags
-export PATH="$HOME/.uctags/2025-08-28/usr/local/bin:$PATH"
-
 # Rust Cargo
 export PATH="$HOME/.cargo:$PATH"
 
@@ -43,7 +30,7 @@ export PATH="$HOME/Telegram:$PATH"
 export NVIM_APPNAME="lazyvim"
 
 # Neo4j custom data path
-export NEO4J_DESKTOP_DATA_PATH="$HOME/neo4j/data"
+export NEO4J_DESKTOP_DATA_PATH="$HOME/.local/neo4j/data"
 
 ######################################################################################
 ########################## Python Path Updates #######################################
