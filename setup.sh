@@ -1,5 +1,6 @@
 #!/bin/bash
 
+DOT_LOCAL="$HOME/.local"
 ZSHENV="$HOME/.zshenv"
 ZSH_CUSTOM="$HOME/.oh-my-zsh/custom/"
 
@@ -15,6 +16,10 @@ CONDA_CREATE_ENV="--conda-create-env"
 
 # get the user task (if any)
 task=$1
+
+if [ ! -d $DOT_LOCAL ]; then
+  mkdir $DOT_LOCAL
+fi
 
 if [ $task == $STOW ]; then
   stow -t ~ .
@@ -85,8 +90,8 @@ if [ $task == $INSTALL_CONDA ]; then
     if [ -d $MINICONDA_INSTALL ]; then
       echo "Directory already exists: $MINICONDA_INSTALL"
       exit 1
-    elif [ ! -d miniconda_custom_dirname ]; then
-      echo "Path not valid: $miniconda_custom_dirname"
+    elif [ ! -d $miniconda_custom_dirname ]; then
+      echo "Custom parent installation directory not valid: <$miniconda_custom_dirname>"
       exit 1
     else
       MINICONDA_ROOT=$MINICONDA_INSTALL
@@ -95,14 +100,15 @@ if [ $task == $INSTALL_CONDA ]; then
 
   echo "Miniconda install location: $MINICONDA_ROOT"
 
-  exit 1
   wget $MINICONDA_URL -O $MINICONDA_TMP_FILE
   bash $MINICONDA_TMP_FILE -b -p $MINICONDA_ROOT
   echo "Done. Removing temporary files..."
   rm $MINICONDA_TMP_FILE
 
-  echo "Appending conda bin to PATH..."
+  echo "export MINICONDA_ROOT=$MINICONDA_ROOT" >>$ZSHENV
   export PATH="$MINICONDA_ROOT/bin:$PATH"
+  # create symlink for conda binaries directory into .local/bin
+  ln -s "$MINICONDA_ROOT/bin $DOT_LOCAL"
   source $MINICONDA_ROOT/bin/activate
   conda init --all
 fi
