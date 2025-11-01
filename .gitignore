@@ -1,3 +1,6 @@
 .zcompdump*
 .zshenv
 test.sh
+
+.config/zsh/ohmyzsh
+

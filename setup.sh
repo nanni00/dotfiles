@@ -79,7 +79,7 @@ if [ $task == $INSTALL_CONDA ]; then
   # download and install miniconda
   echo "Downloading miniconda..."
   MINICONDA_URL="https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh"
-  MINICONDA_ROOT="$HOME/.miniconda3"
+  MINICONDA_ROOT="$HOME/miniconda3"
   MINICONDA_TMP_FILE="/tmp/miniconda.sh"
 
   # specify custom installation path
