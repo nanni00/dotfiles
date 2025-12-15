@@ -24,6 +24,7 @@ dependencies:
     - mmh3
     - inflection
     - sodapy
+    - fastexcel
 
     # LLM
     - litellm

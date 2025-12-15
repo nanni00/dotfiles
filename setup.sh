@@ -110,7 +110,7 @@ if [ $task == $INSTALL_CONDA ]; then
   # create symlink for conda binaries directory into .local/bin
   ln -s "$MINICONDA_ROOT/bin $DOT_LOCAL"
   source $MINICONDA_ROOT/bin/activate
-  conda init --all
+  # conda init $SHELL
 fi
 
 if [ $task == $CONDA_CREATE_ENV ]; then

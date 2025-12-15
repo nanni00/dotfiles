@@ -8,6 +8,7 @@
 export PATH="/usr/local/texlive/2025/bin/x86_64-linux:$PATH"
 export MANPATH="/usr/local/texlive/2025/texmf-dist/doc/man:$MANPATH"
 export INFOPATH="/usr/local/texlive/2025/texmf-dist/doc/info:$INFOPATH"
+export TEXMFHOME="$HOME/texmf"
 
 # Created by `pipx` on 2024-12-18 10:03:22
 export PATH="$HOME/.local/bin:$PATH"
@@ -17,6 +18,9 @@ export PATH="$HOME/.cargo:$PATH"
 
 # Telegram
 export PATH="$HOME/Telegram:$PATH"
+
+export SOLR_PATH="$HOME/projects/solr/solr-9.10.0"
+export PATH="$SOLR_PATH/bin:$PATH"
 
 ######################################################################################
 ########################## Other global Updates ######################################
@@ -39,16 +43,6 @@ export NEO4J_DESKTOP_DATA_PATH="$HOME/.local/neo4j/data"
 # custom py_datafusion lib
 export PYTHONPATH="$HOME/mystuff/py_datafusion/src:$PYTHONPATH"
 
-# BLEND access
-export PYTHONPATH="$HOME/projects/general-data-science/BLEND:$PYTHONPATH"
-
-# JOSIE
-export PYTHONPATH="$HOME/projects/general-data-science/JOSIE:$PYTHONPATH"
-
-# My super simple CKAN client
-export PYTHONPATH="$HOME/projects/general-data-science/ULOD:$PYTHONPATH"
-
-# Corrsketch
 export PYTHONPATH="$HOME/projects/general-data-science/correlation:$PYTHONPATH"
 
 
