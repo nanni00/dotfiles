@@ -6,8 +6,16 @@
 --
 -- Or remove existing autocmds by their group name (which is prefixed with `lazyvim_` for the defaults)
 -- e.g. vim.api.nvim_del_augroup_by_name("lazyvim_wrap_spell")
---
---
--- Provide a command to create a blank new Python notebook
--- note: the metadata is needed for Jupytext to understand how to parse the notebook.
--- if you use another language than Python, you should change it in the template.
+
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = { "quarto", "ipynb", "markdown" },
+  callback = function()
+    -- We use vim.schedule to ensure the buffer is fully loaded
+    -- before running the activation command
+    vim.schedule(function()
+      if vim.fn.exists(":QuartoActivate") == 2 then
+        vim.cmd("QuartoActivate")
+      end
+    end)
+  end,
+})

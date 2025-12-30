@@ -5,7 +5,7 @@ return {
       {
         mode = { "n", "v" },
         { "<leader>cv", group = "virtualenv", icon = { icon = " " } },
-        { "<leader>cM", group = "molten", icon = { icon = "󰠮", color = "orange" } },
+        -- { "<localleader>m", group = "molten" },
       },
     },
   },

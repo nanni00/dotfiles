@@ -4,4 +4,4 @@
 -- Set to "basedpyright" to use basedpyright instead of pyright.
 -- vim.g.lazyvim_python_lsp = "basedpyright"
 
-vim.g.python3_host_prog = vim.fn.expand("~/.virtualenvs/molten/bin/python3")
+vim.g.python3_host_prog = vim.fn.expand("~/.venvs/neovim/bin/python3")

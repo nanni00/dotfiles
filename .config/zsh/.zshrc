@@ -115,22 +115,22 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 ################### Set up conda ###################
-export MINICONDA_ROOT="$HOME/miniconda3"
-export PATH="$PATH:$MINICONDA_ROOT/bin"
+# export MINICONDA_ROOT="$HOME/miniconda3"
+# export PATH="$PATH:$MINICONDA_ROOT/bin"
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/home/nanni/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/home/nanni/miniconda3/etc/profile.d/conda.sh" ]; then
-        . "/home/nanni/miniconda3/etc/profile.d/conda.sh"
-    else
-        export PATH="/home/nanni/miniconda3/bin:$PATH"
-    fi
-fi
-unset __conda_setup
+# __conda_setup="$('/home/nanni/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+# if [ $? -eq 0 ]; then
+#     eval "$__conda_setup"
+# else
+#     if [ -f "/home/nanni/miniconda3/etc/profile.d/conda.sh" ]; then
+#         . "/home/nanni/miniconda3/etc/profile.d/conda.sh"
+#     else
+#         export PATH="/home/nanni/miniconda3/bin:$PATH"
+#     fi
+# fi
+# unset __conda_setup
 # <<< conda initialize <<<
 
 export EDITOR="nvim"
@@ -143,43 +143,4 @@ AUTO_CD=1
 # To customize prompt, run `p10k configure` or edit ~/.config/zsh/.p10k.zsh.
 [[ ! -f ~/.config/zsh/.p10k.zsh ]] || source ~/.config/zsh/.p10k.zsh
 
-# utilies from Molten.nvim
-# usage
-# $ mkvenv myvirtualenv # creates venv under ~/.virtualenvs/
-# $ venv myvirtualenv   # activates venv
-# $ deactivate          # deactivates venv
-# $ rmvenv myvirtualenv # removes venv
 
-export VENV_HOME="$HOME/.virtualenvs"
-[[ -d $VENV_HOME ]] || mkdir $VENV_HOME
-
-lsvenv() {
-  ls -1 $VENV_HOME
-}
-
-venv() {
-  if [ $# -eq 0 ]
-    then
-      echo "Please provide venv name"
-    else
-      source "$VENV_HOME/$1/bin/activate"
-  fi
-}
-
-mkvenv() {
-  if [ $# -eq 0 ]
-    then
-      echo "Please provide venv name"
-    else
-      python3 -m venv $VENV_HOME/$1
-  fi
-}
-
-rmvenv() {
-  if [ $# -eq 0 ]
-    then
-      echo "Please provide venv name"
-    else
-      rm -r $VENV_HOME/$1
-  fi
-}

@@ -8,12 +8,20 @@ return {
     },
     -- Refer to the configuration section below
     -- or leave empty for default
-    mounts = {
-      auto_change_dir_on_mount = true,
+    hooks = {
+      on_mount = {
+        auto_change_to_dir = true,
+        auto_run = "none",
+      },
     },
-    ui = {
-      file_picker = {
-        auto_open_on_mount = false,
+
+    host_paths = {
+      ["sparc20"] = {
+        "~/projects/orqa",
+        "~/projects/Blend",
+        "~/projects/ULOD/",
+        -- "~/projects/general-data-science/"
+        "~/projects/correlation-research",
       },
     },
   },

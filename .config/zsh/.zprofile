@@ -43,7 +43,8 @@ export NEO4J_DESKTOP_DATA_PATH="$HOME/.local/neo4j/data"
 # custom py_datafusion lib
 export PYTHONPATH="$HOME/mystuff/py_datafusion/src:$PYTHONPATH"
 
-export PYTHONPATH="$HOME/projects/general-data-science/correlation:$PYTHONPATH"
+# export PYTHONPATH="$HOME/projects/general-data-science/correlation:$PYTHONPATH"
 
+export PYTHONPATH="$HOME/projects/correlation-research/src:$PYTHONPATH"
 
 
