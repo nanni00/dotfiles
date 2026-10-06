@@ -38,7 +38,7 @@ return {
       "hydra.nvim",
       "otter.nvim",
     },
-    ft = { "quarto", "markdown", "norg" },
+    ft = { "quarto", "markdown" },
     config = function()
       local quarto = require("quarto")
       quarto.setup({

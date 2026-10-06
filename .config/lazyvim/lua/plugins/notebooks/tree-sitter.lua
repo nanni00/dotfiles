@@ -2,9 +2,9 @@ return {
   {
     "nvim-treesitter/nvim-treesitter",
     dependencies = { "nvim-treesitter/nvim-treesitter-textobjects" },
-    init = function()
+    config = function()
       require("nvim-treesitter.config").setup({
-        install_dir = "",
+        -- install_dir = "",
         -- ... other ts config
         textobjects = {
           move = {
@@ -19,6 +19,7 @@ return {
               ["[b"] = { query = "@code_cell.inner", desc = "previous code block" },
             },
           },
+
           select = {
             enable = true,
             lookahead = true, -- you can change this if you want
@@ -28,6 +29,7 @@ return {
               ["ab"] = { query = "@code_cell.outer", desc = "around block" },
             },
           },
+
           swap = { -- Swap only works with code blocks that are under the same
             -- markdown header
             enable = true,

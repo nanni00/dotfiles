@@ -5,9 +5,14 @@
 ######################################################################################
 
 # TeX Live
-export PATH="/usr/local/texlive/2025/bin/x86_64-linux:$PATH"
-export MANPATH="/usr/local/texlive/2025/texmf-dist/doc/man:$MANPATH"
-export INFOPATH="/usr/local/texlive/2025/texmf-dist/doc/info:$INFOPATH"
+# 2025
+# export PATH="/usr/local/texlive/2025/bin/x86_64-linux:$PATH"
+# export MANPATH="/usr/local/texlive/2025/texmf-dist/doc/man:$MANPATH"
+# export INFOPATH="/usr/local/texlive/2025/texmf-dist/doc/info:$INFOPATH"
+# 2026
+export PATH="/usr/local/texlive/2026/bin/x86_64-linux:$PATH"
+export MANPATH="/usr/local/texlive/2026/texmf-dist/doc/man:$MANPATH"
+export INFOPATH="/usr/local/texlive/2026/texmf-dist/doc/info:$INFOPATH"
 export TEXMFHOME="$HOME/texmf"
 
 # Created by `pipx` on 2024-12-18 10:03:22
@@ -19,8 +24,8 @@ export PATH="$HOME/.cargo:$PATH"
 # Telegram
 export PATH="$HOME/Telegram:$PATH"
 
-export SOLR_PATH="$HOME/projects/solr/solr-9.10.0"
-export PATH="$SOLR_PATH/bin:$PATH"
+# export SOLR_PATH="$HOME/Apache/solr-9.10.0"
+# export PATH="$SOLR_PATH/bin:$PATH"
 
 ######################################################################################
 ########################## Other global Updates ######################################
@@ -36,15 +41,11 @@ export NVIM_APPNAME="lazyvim"
 # Neo4j custom data path
 export NEO4J_DESKTOP_DATA_PATH="$HOME/.local/neo4j/data"
 
-######################################################################################
-########################## Python Path Updates #######################################
-######################################################################################
+export JAVA_HOME=/usr/lib/jvm/java-21-openjdk-amd64
 
-# custom py_datafusion lib
-export PYTHONPATH="$HOME/mystuff/py_datafusion/src:$PYTHONPATH"
+# For Lucene/PyLucen-10.0.0
+export JCC_JDK=/usr/lib/jvm/java-21-openjdk-amd64
 
-# export PYTHONPATH="$HOME/projects/general-data-science/correlation:$PYTHONPATH"
-
-export PYTHONPATH="$HOME/projects/correlation-research/src:$PYTHONPATH"
-
-
+export NVM_DIR="$HOME/.config/nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion

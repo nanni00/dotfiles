@@ -81,7 +81,7 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git zsh-syntax-highlighting zsh-autosuggestions) # zsh-autocomplete)
+plugins=(git 1password zsh-syntax-highlighting zsh-autosuggestions zsh-autocomplete)
 # plugins=()
 source $ZSH/oh-my-zsh.sh
 
@@ -133,7 +133,7 @@ source $ZSH/oh-my-zsh.sh
 # unset __conda_setup
 # <<< conda initialize <<<
 
-export EDITOR="nvim"
+# export EDITOR="nvim"
 
 # See https://zsh.sourceforge.io/Guide/zshguide02.html
 AUTO_CD=1
@@ -143,4 +143,8 @@ AUTO_CD=1
 # To customize prompt, run `p10k configure` or edit ~/.config/zsh/.p10k.zsh.
 [[ ! -f ~/.config/zsh/.p10k.zsh ]] || source ~/.config/zsh/.p10k.zsh
 
+# alias for update kitty
+alias kittyupdate='curl -L https://sw.kovidgoyal.net/kitty/installer.sh | sh /dev/stdin' 
 
+# To customize prompt, run `p10k configure` or edit ~/.dotfiles/.config/zsh/.p10k.zsh.
+[[ ! -f ~/.dotfiles/.config/zsh/.p10k.zsh ]] || source ~/.dotfiles/.config/zsh/.p10k.zsh
